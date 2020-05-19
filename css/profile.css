@@ -1,0 +1,40 @@
+.profile {
+  font-family: "Lato", sans-serif;
+}
+.profile__admins {
+  margin: 15px 10px;
+  width: 100%;
+  height: 180px;
+  overflow: scroll;
+}
+.profile__admins-subscribe:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.stories {
+  margin: 15px 10px;
+  width: 100%;
+  height: 560px;
+  overflow: scroll;
+}
+.stories__description:hover {
+  font-weight: bolder;
+  cursor: pointer;
+}
+.stories__title {
+  font-size: 20px;
+}
+.stories__subtitle {
+  font-size: 15px;
+}
+.stories__date {
+  font-size: 14px;
+  padding-top: 3px;
+}
+.stories__emoji {
+  cursor: pointer;
+}
+.profile__profit {
+  font-size: 20px;
+  color: green;
+}

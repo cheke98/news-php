@@ -1,0 +1,33 @@
+.box {
+  font-family: "Lato", sans-serif;
+  width: 80%;
+  margin: 3vh auto;
+}
+
+textarea {
+  width: 100%;
+  background: #ffffff;
+  border: none;
+  border-radius: 1rem;
+  outline: none;
+}
+
+.textarea__title {
+  font-size: 50px;
+  max-height: 80px;
+  min-height: 80px;
+}
+
+.textarea__subtitle {
+  font-size: 30px;
+  max-height: 50px;
+  min-height: 50px;
+}
+
+.textarea__content {
+  margin-top: 15px;
+  font-size: 20px;
+  min-height: 80px;
+  height: 410px;
+  max-height: 410px;
+}

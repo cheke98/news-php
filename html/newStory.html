@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
+    <link rel="stylesheet" href="../css/bottom-bar.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/newStory.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Nueva historia</title>
+  </head>
+  <body onload="verifyNewStory()">
+    <header class="header d-flex align-items-center">
+      <a class="header__text" href="../index.html">
+        <h1 id="header__text">News</h1>
+      </a>
+      <img
+        class="header__img"
+        src="../assets/img/arrows.svg"
+        onclick="goBack()"
+        alt="more"
+      />
+    </header>
+    <div class="box">
+      <form action="">
+        <textarea
+          maxlength="80"
+          id="textarea__title"
+          onkeyup="enableLoginButton()"
+          class="textarea__title"
+          name="textarea__title"
+          placeholder="Título"
+        ></textarea>
+        <textarea
+          maxlength="180"
+          id="textarea__subtitle"
+          onkeyup="enableLoginButton()"
+          class="textarea__subtitle"
+          name="textarea__subtitle"
+          placeholder="Subtítulo"
+        ></textarea>
+        <textarea
+          maxlength="10000"
+          id="textarea__content"
+          onkeyup="enableLoginButton()"
+          class="textarea__content"
+          name="textarea__content"
+          placeholder="Cuenta tu historia..."
+        ></textarea>
+          <button
+            id="submitBtn"
+            type="button"
+            class="btn btn-outline-success mt-1"
+          >
+            Publicar
+          </button>
+      </form>
+    </div>
+    <svg
+      class="editorial"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28 "
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <path
+          id="gentle-wave"
+          d="M-160 44c30 0 
+    58-18 88-18s
+    58 18 88 18 
+    58-18 88-18 
+    58 18 88 18
+    v44h-352z"
+        />
+      </defs>
+      <g class="parallax1">
+        <use xlink:href="#gentle-wave" x="50" y="3" fill="#f461c1" />
+      </g>
+      <g class="parallax2">
+        <use xlink:href="#gentle-wave" x="50" y="0" fill="#000" />
+      </g>
+      <g class="parallax3">
+        <use xlink:href="#gentle-wave" x="50" y="9" fill="#d8ffd8" />
+      </g>
+      <g class="parallax4">
+        <use xlink:href="#gentle-wave" x="50" y="6" fill="#4579e2" />
+      </g>
+    </svg>
+    <script src="../js/newStory.js"></script>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/article.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
+    <link rel="stylesheet" href="../css/bottom-bar.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Article</title>
+  </head>
+  <body onload="verifyArticle()">
+    <section class="modal animate" id="commentsModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Comentarios</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="article__comments" id="comments"></div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer d-flex justify-content-center">
+            <div id="commentBox" class="input-group mb-3">
+              <input
+                id="commentToSend"
+                maxlength="45"
+                type="text"
+                class="form-control"
+                placeholder="Deja un comentario..."
+              />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="sendCommentBtn"
+                >
+                  Enviar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <header class="header">
+      <a class="header__text" href="../index.html">
+        <h1 id="header__text">News</h1>
+      </a>
+      <form id="search-form" action="search.html">
+        <input
+          class="header__input"
+          type="text"
+          placeholder="Search..."
+          name="searching"
+          id="searching"
+        />
+      </form>
+      <img
+        class="header__img"
+        src="../assets/img/arrows.svg"
+        onclick="goBack()"
+        alt="more"
+      />
+    </header>
+    <div class="container-fluid article">
+      <div class="row ml-3 mr-3 mt-4" id="article-body"></div>
+      <div
+        class="row mt-3 d-flex justify-content-around"
+        id="div-low-buttons"
+      ></div>
+    </div>
+    <svg
+      class="editorial"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28 "
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <path
+          id="gentle-wave"
+          d="M-160 44c30 0 
+  58-18 88-18s
+  58 18 88 18 
+  58-18 88-18 
+  58 18 88 18
+  v44h-352z"
+        />
+      </defs>
+      <g class="parallax1">
+        <use xlink:href="#gentle-wave" x="50" y="3" fill="#f461c1" />
+      </g>
+      <g class="parallax2">
+        <use xlink:href="#gentle-wave" x="50" y="0" fill="#000" />
+      </g>
+      <g class="parallax3">
+        <use xlink:href="#gentle-wave" x="50" y="9" fill="#d8ffd8" />
+      </g>
+      <g class="parallax4">
+        <use xlink:href="#gentle-wave" x="50" y="6" fill="#4579e2" />
+      </g>
+    </svg>
+    <script src="../js/article.js"></script>
+  </body>
+</html>

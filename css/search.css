@@ -1,0 +1,29 @@
+.results {
+  font-family: "Lato", sans-serif;
+}
+.results__list {
+  padding: 15px;
+  width: 100%;
+  height: 550px;
+  overflow: scroll;
+}
+
+.course {
+  background-color: #fff;
+  border-radius: 5px;
+  display: flex;
+  max-width: 100%;
+  margin: 20px;
+  overflow: hidden;
+  width: 600px;
+}
+.course:hover {
+  cursor: pointer;
+}
+.course__title {
+  font-family: "Lato", sans-serif;
+  margin: 15px;
+}
+.course img {
+  height: 100%;
+}

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/sidenav.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
+    <link rel="stylesheet" href="./css/bottom-bar.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>News</title>
+  </head>
+  <body>
+    <section id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;</a
+      >
+      <a id="loginButton" href="#" data-toggle="modal" data-target="#loginModal"
+        >Ingresar</a
+      >
+      <a
+        id="signupButton"
+        href="#"
+        data-toggle="modal"
+        data-target="#signupModal"
+        >Registrarte</a
+      >
+      <small id="profileSmall" style="display: none;"></small>
+      <a id="profileButton" href="./html/profile.html" style="display: none;"
+        >Mi Perfil</a
+      >
+      <a
+        id="adminProfileButton"
+        href="./html/adminProfile.html"
+        style="display: none;"
+        >Mi Perfil</a
+      >
+      <a
+        id="superUserProfileButton"
+        href="./html/superUserProfile.html"
+        style="display: none;"
+        >Mi Perfil</a
+      >
+      <a id="newStoryButton" href="./html/newStory.html" style="display: none;"
+        >Nueva historia</a
+      >
+      <a id="logoutButton" href="#" style="display: none;" onclick="logout()"
+        >Cerrar sesión</a
+      >
+    </section>
+    <section class="modal animate" id="loginModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Ingresar</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form id="loginForm" action="">
+              <div class="form-group">
+                <label class="font-weight-light" for="loginEmail">
+                  Correo electrónico</label
+                >
+                <input
+                  type="email"
+                  name="loginEmail"
+                  class="form-control"
+                  id="loginEmail"
+                  placeholder="Escribe tu correo electrónico"
+                  onkeyup="enableLoginButton()"
+                />
+              </div>
+              <div class="form-group">
+                <label class="font-weight-light" for="loginPwd"
+                  >Contraseña</label
+                >
+                <input
+                  type="password"
+                  name="loginPwd"
+                  class="form-control"
+                  id="loginPwd"
+                  aria-describedby="pwdDescription"
+                  placeholder="Escribe tu contraseña"
+                  onkeyup="enableLoginButton()"
+                />
+                <small id="pwdDescription" class="font-weight-bold"
+                  >Mínimo de 6 caractéres.</small
+                >
+              </div>
+            </form>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer d-flex justify-content-center">
+            <button
+              id="loginBtn"
+              type="button"
+              class="btn btn-outline-success"
+              data-dismiss="modal"
+            >
+              Ingresar
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="modal animate" id="signupModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Registrarte</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form id="signupForm" action="">
+              <div class="form-group">
+                <label class="font-weight-light" for="signUpName">
+                  Nombre</label
+                >
+                <input
+                  type="text"
+                  name="signUpName"
+                  class="form-control"
+                  id="signUpName"
+                  onkeyup="replaceNumbersAndSpecialChars()"
+                  placeholder="Escribe tu nombre"
+                />
+              </div>
+              <div class="form-group">
+                <label class="font-weight-light" for="signUpEmail">
+                  Correo electrónico</label
+                >
+                <input
+                  type="email"
+                  name="signUpEmail"
+                  class="form-control"
+                  id="signUpEmail"
+                  onkeyup="enableRegisterButton()"
+                  placeholder="Escribe tu correo electrónico"
+                />
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="signUpUserType"
+                    >Tipo de usuario</label
+                  >
+                </div>
+                <select
+                  class="custom-select"
+                  id="signUpUserType"
+                  onchange="enableRegisterButton()"
+                >
+                  <option value="escoge" selected>Escoge...</option>
+                  <option value="reporter">Reportero</option>
+                  <option value="admin">Administrador</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="font-weight-light" for="signUpPwd"
+                  >Contraseña</label
+                >
+                <input
+                  type="password"
+                  name="signUpPwd"
+                  class="form-control"
+                  id="signUpPwd"
+                  aria-describedby="pwdDescription"
+                  onkeyup="enableRegisterButton()"
+                  placeholder="Escribe tu contraseña"
+                />
+                <small id="pwdDescription" class="font-weight-bold"
+                  >Mínimo de 6 caractéres.</small
+                >
+              </div>
+            </form>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer d-flex justify-content-center">
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              data-dismiss="modal"
+              id="registerBtn"
+            >
+              Regístrate
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div id="main" class="main">
+      <header class="header">
+        <a
+          class="header__text"
+          href="javascript:window.location.assign('index.html')"
+        >
+          <h1 id="header__text">News</h1>
+        </a>
+        <form id="search-form" action="html/search.html">
+          <input
+            class="header__input"
+            type="text"
+            placeholder="Search..."
+            name="searching"
+            id="searching"
+          />
+        </form>
+        <img
+          class="header__img"
+          src="./assets/img/shapes.png"
+          onclick="toggleNav()"
+          alt="more"
+        />
+      </header>
+      <div class="container-fluid">
+        <div class="row ml-2 mt-4">
+          <div class="col-4">
+            <h1>
+              Tendencia
+            </h1>
+            <div class="container trending" id="firstTrend"></div>
+            <div class="container mt-4" id="mt-4"></div>
+          </div>
+          <div class="col-6">
+            <div id="most-popular-posts" class="mt-2">
+              <h2>Más populares en News:</h2>
+              <section class="my-carousel">
+                <div class="my-carousel__container" id="otherTrend"></div>
+              </section>
+            </div>
+            <div id="most-recent-posts" class="mt-2">
+              <h2>Publicaciones más recientes:</h2>
+              <section class="my-carousel">
+                <div class="my-carousel__container" id="latestNews"></div>
+              </section>
+            </div>
+          </div>
+          <div class="col-2">
+            <div id="card" class="card mt-3" style="width: 12rem;">
+              <img
+                class="card-img-top"
+                src="./assets/img/covid.png"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Coronavirus Blog</h5>
+                <p class="card-text">
+                  Una fuente en tiempo real para noticias del Covid-19
+                </p>
+              </div>
+              <ul class="list-group list-group-flush" id="list-group"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <svg
+      class="editorial"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28 "
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <path
+          id="gentle-wave"
+          d="M-160 44c30 0 
+    58-18 88-18s
+    58 18 88 18 
+    58-18 88-18 
+    58 18 88 18
+    v44h-352z"
+        />
+      </defs>
+      <g class="parallax1">
+        <use xlink:href="#gentle-wave" x="50" y="3" fill="#f461c1" />
+      </g>
+      <g class="parallax2">
+        <use xlink:href="#gentle-wave" x="50" y="0" fill="#000" />
+      </g>
+      <g class="parallax3">
+        <use xlink:href="#gentle-wave" x="50" y="9" fill="#d8ffd8" />
+      </g>
+      <g class="parallax4">
+        <use xlink:href="#gentle-wave" x="50" y="6" fill="#4579e2" />
+      </g>
+    </svg>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

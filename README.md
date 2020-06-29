@@ -9,6 +9,6 @@ Run the .sql script on a xampp environment (http://localhost:8080/phpmyadmin/)
 ![Article view](https://raw.githubusercontent.com/dnalcudia/news-php/master/img2.png)
 ![Profile](https://raw.githubusercontent.com/dnalcudia/news-php/master/img3.png)
 
-# Landing Page
+# interactive mock-up
  https://dnalcudia.github.io/news/index.html
 
